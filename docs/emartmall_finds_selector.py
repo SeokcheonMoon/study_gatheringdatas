@@ -44,20 +44,15 @@ type(elements_path)
 type(elements_path[0])
 # <class 'selenium.webdriver.remote.webelement.WebElement'>
 elements_path[0].text
-# '시리우스 펫퓸 반려견 러블리플라워 샴푸 500ML'                                                        이 구간은 여러개의 elements 정보 가져오기 구간임.
+# '시리우스 펫퓸 반려견 러블리플라워 샴푸 500ML'                                                        
 
 
 for webelement in elements_path :                #elements_path는 리스트인걸 확인
     title = webelement.text
     print("{}".format(title))
-    pass
-
+    pass                                                                                             # 이 구간은 여러개의 elements 정보 가져오기 구간임.
+                                                                                                   
 pass
-
-
-
-
-
 
 ######################################################################################################################################################################
 
