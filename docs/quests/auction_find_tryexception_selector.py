@@ -26,7 +26,7 @@ element_bundle = browser.find_elements(by=By.CSS_SELECTOR, value = selector_valu
 
 for element_item in element_bundle :               
     # 상품 제목
-    print("{}".format(element_item.text))
+    
     element_title = element_item.find_element(by=By.CSS_SELECTOR, value ="div.info>em>a")
     title = element_title.text
     
