@@ -19,29 +19,6 @@ capabilities = browser.capabilities
 # - 주소입력
 browser.get("https://corners.auction.co.kr/corner/categorybest.aspx?catetab=1")
 
-
-
-#전체
-# div.info
-#itembest_T > ul.uxb-img.first > li.first > div > div.info
-
-#타이틀
-# div.info>em>a
-#itembest_T > ul.uxb-img.first > li.first > div > div.info > em > a
-
-#원가
-# span.cost
-#itembest_T > ul.uxb-img.first > li.first > div > div.info > ul > li.c_price > span > strike > span
-
-#정가
-# span.sale
-#itembest_T > ul.uxb-img.first > li.first > div > div.info > ul > li.d_price > span.sale > span
-
-#배송
-# div.item_icons > div
-#itembest_T > ul.uxb-img.first > li.first > div > div.info > div.icon > div > div.icons.ic_allkill
-#itembest_T > ul.uxb-img.first > li.first > div > div.info > div.icon > div > div.icons.ic_free
-
 # - 정보 획득
 from selenium.webdriver.common.by import By
 selector_value = "div.info"
