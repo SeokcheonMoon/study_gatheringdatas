@@ -10,8 +10,8 @@ browser = webdriver.Chrome(service=ChromeService(webdriver_manager_directory))
 # Chrome WebDriver의 capabilities 속성 사용
 capabilities = browser.capabilities
 
-# - 주소 https://www.w3schools.com/ 입력
-browser.get("https://www.w3schools.com/")
+# - 주소 입력
+browser.get("https://www.jobplanet.co.kr/users/sign_in?_nav=gb")
 
 # - 가능 여부에 대한 OK 받음
 pass
@@ -21,6 +21,18 @@ html = browser.page_source
 
 # - 정보 획득
 from selenium.webdriver.common.by import By
+
+element_login_field = browser.find_element(by = By.CSS_SELECTOR, value = "#user_email")
+element_login_field.send_keys("my980519@gmail.com")
+
+element_password_field = browser.find_element(by = By.CSS_SELECTOR, value = "#user_password")
+element_password_field.send_keys("@")
+
+element_login_button = browser.find_element(by = By.CSS_SELECTOR, value = "div > section.section_email.er_r > fieldset > button")
+element_login_button.click()
+
+# element_input_field = browser.find_element(by = By.CSS_SELECTOR, value = "")
+# element_password_field.send_keys()
 
 pass
 # browser.save_screenshot("./formats.png")
