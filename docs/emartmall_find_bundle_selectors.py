@@ -21,7 +21,7 @@ from selenium.webdriver.common.by import By
 selector_value = "div.mnemitem_unit"
 element_bundle = browser.find_elements(by=By.CSS_SELECTOR, value = selector_value)
 
-for element_item in element_bundle :
+for element_item in element_bundle :               #for element_item in element_bundle[10:41] ---> 리스트에서 10~41 사이에서 looping 을 함. 오류를 찾을대 사용. #list slicing 기법임.
     # 상품 제목
     print("{}".format(element_item.text))
     element_title = element_item.find_element(by=By.CSS_SELECTOR, value ="span.mnemitem_goods_tit")
