@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
+# 브라우저 설치
+
 webdriver_manager_directory = ChromeDriverManager().install()
 browser = webdriver.Chrome(service=ChromeService(webdriver_manager_directory))
 # ChromeDriver 실행
@@ -13,7 +15,7 @@ capabilities = browser.capabilities
 # - 주소 https://www.w3schools.com/ 입력
 browser.get("https://www.w3schools.com/")
 
-# - 가능 여부에 대한 OK 받음
+# - 가능 여부에 대한 OK 받음 (ok를 주고받는 네트워크 상 번호는 200이다.)
 pass
 # - html 파일 받음(and 확인)
 html = browser.page_source
