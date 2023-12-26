@@ -30,9 +30,5 @@ pass
 # - 정보 획득
 from selenium.webdriver.common.by import By
 
-
-pass
-# browser.save_screenshot("./formats.png")
-
 # 브라우저 종료
 browser.quit()
