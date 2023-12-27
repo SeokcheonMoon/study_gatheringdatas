@@ -65,23 +65,7 @@ while True:
         # 더 이상 버튼이 없으므로 while문을 종료
         break
 
-# # 한페이지씩 이동하기
-# element_body = browser.find_elements(by = By.CSS_SELECTOR, value = "body")
-# previous_scrollHeight = 0
 
-# while True :
-
-#     element_body.send_keys(Keys.END)                                                        # scroll 길게 함
-
-#     current_scrollHeight = browser.execute_script("return document.body.scrollHeight")      # 현재의 scrollheight를 while문 안에 넣어 반복하여 길게 함.
-#     if previous_scrollHeight >= current_scrollHeight :
-#         break
-#     else :
-#         previous_scrollHeight = current_scrollHeight
-#     time.sleep(1)
-    
-
-#     pass
 
 selector_value = "li.review_list_element"
 element_bundle = browser.find_elements(by=By.CSS_SELECTOR, value = selector_value)
@@ -94,7 +78,7 @@ for element_item in element_bundle :
     # options = option.text
     star = element_item.find_element(by = By.CSS_SELECTOR, value = "div > p.grade > span > span" )               # 별점 점수 list
     stars = star.text
-    try :##################################################################################################################
+    try :
         comment = element_item.find_element(by = By.CSS_SELECTOR, value = "div > div > div.cont_text_wrap > p" )         # 내용 list   
         comments = comment.text
         pass
