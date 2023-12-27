@@ -14,19 +14,26 @@ browser = webdriver.Chrome(service=ChromeService(webdriver_manager_directory))
 capabilities = browser.capabilities
 
 # - 주소 https://www.w3schools.com/ 입력
-browser.get("https://www.w3schools.com/")
-
-# - 가능 여부에 대한 OK 받음 (ok를 주고받는 네트워크 상 번호는 200이다.)
-pass
-# - html 파일 받음(and 확인)
-html = browser.page_source
-# print(html)
+url = "https://play.google.com/store/search?q=%ED%97%AC%EC%8A%A4%EC%BC%80%EC%96%B4%EC%95%B1&c=apps&hl=ko-KR"
+browser.get(url)
 
 # - 정보 획득
 from selenium.webdriver.common.by import By
 
+elements_companies = browser.find_elements(by=By.CSS_SELECTOR, value="div > a.Si6A0c.Gy4nib")
+
 pass
 # browser.save_screenshot("./formats.png")
+
+for company in elements_companies :
+    company.click()     
+    time.sleep(1)       #화면 완성 term
+    element_title = browser.find_element(by=By.CSS_SELECTOR, value = "div > h1")
+    print("App company name : {}".format(element_title.text))
+    browser.back()
+    time.sleep(1)       #화면 완성 term
+    pass
+pass
 
 # 브라우저 종료
 browser.quit()
