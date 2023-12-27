@@ -28,7 +28,7 @@ element_click = browser.find_element(by=By.CSS_SELECTOR, value = "#menuLink84")
 element_click.click()
 
 #iframe 으로 전환
-browser.switch_to.frame("cafe_main")
+browser.switch_to.frame("cafe_main")                    # <iframe을 통해 검사 하여 name값을 따오는 과정
 
 #​​​#main-area > div:nth-child(4) > table > tbody >tr : 해당 리스트
 cafe_list = browser.find_elements(by=By.CSS_SELECTOR, value = "#main-area > div:nth-child(4) > table > tbody >tr")
