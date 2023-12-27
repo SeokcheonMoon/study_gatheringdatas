@@ -27,6 +27,8 @@ from selenium.webdriver.common.by import By
 element_click = browser.find_element(by=By.CSS_SELECTOR, value = "#menuLink84")
 element_click.click()
 
+#iframe 으로 전환
+browser.switch_to.frame("cafe_main")
 
 #​​​#main-area > div:nth-child(4) > table > tbody >tr : 해당 리스트
 cafe_list = browser.find_elements(by=By.CSS_SELECTOR, value = "#main-area > div:nth-child(4) > table > tbody >tr")
