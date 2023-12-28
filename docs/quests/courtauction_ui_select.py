@@ -22,6 +22,27 @@ pass
 html = browser.page_source
 # print(html)
 
+####################################################################################################################
+
+def connection() :                                                          #mongoDB connect function
+    from pymongo import MongoClient
+
+    # mongoDB에 접속 ( 자원에 대한 class)
+    mongoClient = MongoClient("mongodb://localhost:27017") #해당하는 mongoDB의 주소를 변수에 담아준다.
+
+
+    # database 생성 및 연결
+    database = mongoClient["gatheringdatas"]
+
+
+
+    # collection에 작업
+    collection = database["courtauction_ui_select"]
+
+    return collection
+
+####################################################################################################################
+
 # - 정보 획득
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select 
@@ -63,12 +84,15 @@ for court_number in range(3) :
             
             print("{}".format(number))
             print("{}".format(location))
+            collection_comments = connection()
+            collection_comments.insert_one({ "법원소재지" : courthouse[court_number], "사건번호" : number, "소재지및내역" : location})
         if page_number < len(total_page) :
             total_page[page_number].click()
         else:
             break
     element_search = browser.find_element(by = By.CSS_SELECTOR,value = "div > div > a:nth-child(5) > img")          # 이전기능
     element_search.click()
+
     pass
 
 
