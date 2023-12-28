@@ -33,31 +33,43 @@ element_auction_items.click()
 
 
 
-for court_number in range(0,1,2) : 
+for court_number in range(3) : 
     selector_element = "#idJiwonNm"                                                                        #법원 
-    element_courthouse = browser.find_element(by=By.CSS_SELECTOR, value = selector_element)            
+    element_courthouse = browser.find_element(by=By.CSS_SELECTOR, value = selector_element)
+    courthouse_bundle = element_courthouse.text
+    courthouse = courthouse_bundle.split()            
     Select(element_courthouse).select_by_index(court_number)  
-
+    print("{}".format(courthouse[court_number]))
 
 # selector_element = "#idJpDeptCode"                                                                     #소재지
 # element_courthouse = browser.find_element(by=By.CSS_SELECTOR, value = selector_element )        
 # Select(element_courthouse).select_by_index(2)  
-
-
-
+    
     element_search = browser.find_element(by = By.CSS_SELECTOR,value = "#contents > form > div.tbl_btn > a:nth-child(1) > img")          # 검색기능
     element_search.click()
 
-    element_number = browser.find_elements(by = By.CSS_SELECTOR,value = "table.Ltbl_list > tbody > tr > td:nth-child(2)")                    #사건번호
-    element_location = browser.find_elements(by = By.CSS_SELECTOR,value = "td:nth-child(4)")                    #소재지
 
-    for index in range(len(element_number)) :                                                                 #사건번호 소재지 갯수만큼 출력
-        number = element_number[index].text
-        location = element_location[index].text
+    total_page = browser.find_elements(by = By.CSS_SELECTOR,value = "div.page2 > a > span")  
+
+    for page_number in range(len(total_page)+1) :                                                      #페이지 넘버 별로 클릭하기 위해 순서
+        total_page = browser.find_elements(by = By.CSS_SELECTOR,value = "div.page2 > a > span")  
         
-        print("{}".format(number))
-        print("{}".format(location))
-    
+        element_number = browser.find_elements(by = By.CSS_SELECTOR,value = "table.Ltbl_list > tbody > tr > td:nth-child(2)")                    #사건번호
+        element_location = browser.find_elements(by = By.CSS_SELECTOR,value = "td:nth-child(4)")                    #소재지
+        for index in range(len(element_number)) :                                                                 #사건번호 소재지 갯수만큼 출력
+
+            number = element_number[index].text
+            location = element_location[index].text
+            
+            print("{}".format(number))
+            print("{}".format(location))
+        if page_number < len(total_page) :
+            total_page[page_number].click()
+        else:
+            break
+    element_search = browser.find_element(by = By.CSS_SELECTOR,value = "div > div > a:nth-child(5) > img")          # 이전기능
+    element_search.click()
+    pass
 
 
 
