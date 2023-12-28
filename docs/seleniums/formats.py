@@ -14,7 +14,7 @@ browser = webdriver.Chrome(service=ChromeService(webdriver_manager_directory))
 capabilities = browser.capabilities
 
 # - 주소 https://www.w3schools.com/ 입력
-browser.get("https://www.w3schools.com/")
+browser.get("https://www.w3schools.com/")                                                       #url 가장 먼저 입력
 
 # - 가능 여부에 대한 OK 받음 (ok를 주고받는 네트워크 상 번호는 200이다.)
 pass
