@@ -58,3 +58,6 @@ def quitBrowser(browser):
     # 브라우저 종료
     browser.quit()
     return 0
+
+# if __name__ == "main" :
+#     getBrowserFromURI("https://www.w3schools.com/")
